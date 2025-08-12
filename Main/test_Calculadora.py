@@ -37,6 +37,18 @@ class PruebasCalculadora(unittest.TestCase):
         ingresos_esperados = 126000000
         self.assertAlmostEqual(ingresos_totales, ingresos_esperados, 2)
 
+    def test_extraordinario_3(self):
+        sueldo = 2500000
+        otros_ingresos = 30000000
+
+        # Llamamos a la función para calcular los ingresos totales anuales
+        ingresos_totales = calcular_ingresos_total_anuales(sueldo, otros_ingresos)
+
+        # Comprobamos que los ingresos totales anuales son correctos
+        ingresos_esperados = 36000000
+        self.assertAlmostEqual(ingresos_totales, ingresos_esperados, 2)
+
+
 
 if __name__ == '__main__':
     unittest.main()
