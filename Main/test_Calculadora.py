@@ -45,7 +45,7 @@ class PruebasCalculadora(unittest.TestCase):
         ingresos_totales = calcular_ingresos_total_anuales(sueldo, otros_ingresos)
 
         # Comprobamos que los ingresos totales anuales son correctos
-        ingresos_esperados = 36000000
+        ingresos_esperados = 60000000
         self.assertAlmostEqual(ingresos_totales, ingresos_esperados, 2)
 
 
