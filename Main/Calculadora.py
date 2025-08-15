@@ -1,17 +1,24 @@
+class ErrorValorNegativo(Exception):
+    """Excepción personalizada para valores negativos."""
+
+class ErrorTipoDato(Exception):
+    """Excepción personalizada para tipos de datos incorrectos."""
+
+
 def calcular_ingresos_total_anuales(sueldo, otros_ingresos, numero_personas=1, patrimonio=0):
     if not isinstance(sueldo, (int, float)):
-        raise TypeError("El sueldo debe ser numérico")
+        raise ErrorTipoDato("El sueldo debe ser numérico")
     if not isinstance(otros_ingresos, (int, float)):
-        raise TypeError("Los otros ingresos deben ser numéricos")
+        raise ErrorTipoDato("Los otros ingresos deben ser numéricos")
     if sueldo < 0:
-        raise ValueError("El sueldo no puede ser negativo")
+        raise ErrorValorNegativo("El sueldo no puede ser negativo")
     if otros_ingresos < 0:
-        raise ValueError("Los otros ingresos no pueden ser negativos")
+        raise ErrorValorNegativo("Los otros ingresos no puede ser negativo") 
     if numero_personas < 0:
-        raise ValueError("El número de personas no puede ser negativo")
+        raise ErrorValorNegativo("El número de personas no puede ser negativo")
     if patrimonio < 0:
-        raise ValueError("El patrimonio no puede ser negativo")
-    
+        raise ErrorValorNegativo("El patrimonio no puede ser negativo")
+
     return (sueldo * 12) + 6000000
 
 

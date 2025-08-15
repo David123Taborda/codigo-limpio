@@ -1,5 +1,5 @@
 import unittest
-from Calculadora import calcular_ingresos_total_anuales
+from Calculadora import calcular_ingresos_total_anuales, ErrorValorNegativo, ErrorTipoDato
 
 class PruebasCalculadora(unittest.TestCase):
 
@@ -49,20 +49,20 @@ class PruebasCalculadora(unittest.TestCase):
     def test_error_sueldo_negativo(self):
         sueldo = -3000000
         otros_ingresos = 0
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ErrorValorNegativo):
             calcular_ingresos_total_anuales(sueldo, otros_ingresos)
 
     def test_error_otros_ingresos_negativos(self):
         sueldo = 3000000
         otros_ingresos = -2000000
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ErrorValorNegativo):
             calcular_ingresos_total_anuales(sueldo, otros_ingresos)
 
     def test_error_numero_personas_negativo(self):
         sueldo = 4000000
         otros_ingresos = 1000000
         numero_personas = -1
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ErrorValorNegativo):
             calcular_ingresos_total_anuales(sueldo, otros_ingresos, numero_personas)                
 
     def test_error_tipo_otros_ingresos(self):
@@ -70,7 +70,7 @@ class PruebasCalculadora(unittest.TestCase):
         otros_ingresos = 1000000
         numero_personas = 0
         patrimonio = -1000000
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ErrorValorNegativo):
             calcular_ingresos_total_anuales(sueldo, otros_ingresos, numero_personas, patrimonio)
     
 if __name__ == '__main__':

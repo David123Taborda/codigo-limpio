@@ -1,4 +1,6 @@
-from Calculadora import calcular_ingresos_total_anuales, calcular_deducciones_por_ley, deducciones_personales, renta_exenta, base_sobre_la_que_se_paga_impuesto
+from Calculadora import calcular_ingresos_total_anuales, calcular_deducciones_por_ley, deducciones_personales, renta_exenta, base_sobre_la_que_se_paga_impuesto, ErrorValorNegativo, ErrorTipoDato
+
+import unittest
 
 
 try:
@@ -22,10 +24,10 @@ try:
 
     print(f"Las salidas esperadas de acuerdo a los datos pedidos son: n/ Ingresos totales: {ingresos_totales} n/ Deducciones por ley: {deducciones_por_ley} n/ Deducciones personales: {deducciones_personales} n/ Renta exenta: {renta_exenta} n/ Base sobre la que se paga impuesto: {base_sobre_la_que_se_paga_impuesto}")
 
-except TypeError as e:
+except ErrorValorNegativo as e:
     print(f"Error: {e}")
 
-except ValueError as e:
+except ErrorTipoDato as e:
     print(f"Error: {e}")
 
 
