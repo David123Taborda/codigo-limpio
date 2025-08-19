@@ -1,5 +1,8 @@
 import unittest
-from Calculadora import calcular_ingresos_total_anuales, ErrorValorNegativo, ErrorTipoDato
+import sys
+sys.path.append("src")
+
+from src.model.Calculadora import calcular_ingresos_total_anuales, ErrorValorNegativo, ErrorTipoDato
 
 class PruebasCalculadora(unittest.TestCase):
 

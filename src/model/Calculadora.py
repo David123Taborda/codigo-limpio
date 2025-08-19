@@ -1,3 +1,6 @@
+
+
+
 class ErrorValorNegativo(Exception):
     """Excepción personalizada para valores negativos."""
 

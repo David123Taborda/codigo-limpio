@@ -1,4 +1,6 @@
-from Calculadora import calcular_ingresos_total_anuales, calcular_deducciones_por_ley, deducciones_personales, renta_exenta, base_sobre_la_que_se_paga_impuesto, ErrorValorNegativo, ErrorTipoDato
+import sys
+sys.path.append("src")
+from model.Calculadora import calcular_ingresos_total_anuales, calcular_deducciones_por_ley, deducciones_personales, renta_exenta, base_sobre_la_que_se_paga_impuesto, ErrorValorNegativo, ErrorTipoDato
 
 import unittest
 
