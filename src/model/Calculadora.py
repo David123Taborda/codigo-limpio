@@ -34,6 +34,6 @@ def deducciones_personales(credito_vivienda: float, gasto_medicina: float):
 def renta_exenta(ingresos_totales: float, deducciones_por_ley: float):
     return 0.25 * (ingresos_totales - deducciones_por_ley)
 
-def base_sobre_la_que_se_paga_impuesto(ingresos_totales: float, deducciones_por_ley: float, deducciones_personales: float, renta_exenta: float):
+def calcular_base_del_impuesto(ingresos_totales: float, deducciones_por_ley: float, deducciones_personales: float, renta_exenta: float):
     return ingresos_totales - deducciones_por_ley - deducciones_personales - renta_exenta
 
