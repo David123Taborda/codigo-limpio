@@ -7,7 +7,7 @@ from src.model.Calculadora import calcular_ingresos_total_anuales, ErrorValorNeg
 class PruebasCalculadora(unittest.TestCase):
 
     # Caso normal 1
-    def test_normal_1(self):
+        def test_normal_1(self):
         sueldo = 4500000
         otros_ingresos = 500000
         esperado = (4500000 * 12 + 6000000)  # Sueldo mensual + otros ingresos + 6000000

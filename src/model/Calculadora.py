@@ -21,14 +21,14 @@ def calcular_ingresos_total_anuales(sueldo, otros_ingresos, numero_personas=1, p
         raise ErrorValorNegativo("El número de personas no puede ser negativo")
     if patrimonio < 0:
         raise ErrorValorNegativo("El patrimonio no puede ser negativo")
-
-    return (sueldo * 12) + 6000000
+    BONO_ANUAL = 6000000
+    return (sueldo * 12) + BONO_ANUAL
 
 
 def calcular_deducciones_por_ley(aporte_pension):    
     return aporte_pension + 3000000
 
-def deducciones_personales(credito_vivienda, gasto_medicina):
+def calcular_deducciones_personales(credito_vivienda, gasto_medicina):
     return credito_vivienda + gasto_medicina
 
 def renta_exenta(ingresos_totales, deducciones_por_ley):

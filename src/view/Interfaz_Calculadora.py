@@ -24,7 +24,15 @@ try:
     renta_exenta = renta_exenta(ingresos_totales, deducciones_por_ley)
     base_sobre_la_que_se_paga_impuesto = base_sobre_la_que_se_paga_impuesto(ingresos_totales, deducciones_por_ley, deducciones_personales, renta_exenta)
 
-    print(f"Las salidas esperadas de acuerdo a los datos pedidos son: n/ Ingresos totales: {ingresos_totales} n/ Deducciones por ley: {deducciones_por_ley} n/ Deducciones personales: {deducciones_personales} n/ Renta exenta: {renta_exenta} n/ Base sobre la que se paga impuesto: {base_sobre_la_que_se_paga_impuesto}")
+    print(
+    f"Las salidas esperadas de acuerdo a los datos pedidos son:\n"
+    f"  - Ingresos totales: {ingresos_totales}\n"
+    f"  - Deducciones por ley: {deducciones_por_ley}\n"
+    f"  - Deducciones personales: {deducciones_personales}\n"
+    f"  - Renta exenta: {renta_exenta}\n"
+    f"  - Base sobre la que se paga impuesto: {base_sobre_la_que_se_paga_impuesto}"
+)
+
 
 except ErrorValorNegativo as e:
     print(f"Error: {e}")
