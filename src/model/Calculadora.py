@@ -8,7 +8,7 @@ class ErrorTipoDato(Exception):
     """Excepción personalizada para tipos de datos incorrectos."""
 
 
-def calcular_ingresos_total_anuales(sueldo, otros_ingresos, numero_personas=1, patrimonio=0):
+def calcular_ingresos_total_anuales(sueldo: int|float, otros_ingresos: int|float, numero_personas: int =1, patrimonio: int =0):
     if not isinstance(sueldo, (int, float)):
         raise ErrorTipoDato("El sueldo debe ser numérico")
     if not isinstance(otros_ingresos, (int, float)):
@@ -25,15 +25,15 @@ def calcular_ingresos_total_anuales(sueldo, otros_ingresos, numero_personas=1, p
     return (sueldo * 12) + 6000000
 
 
-def calcular_deducciones_por_ley(aporte_pension):    
+def calcular_deducciones_por_ley(aporte_pension: float):    
     return aporte_pension + 3000000
 
-def deducciones_personales(credito_vivienda, gasto_medicina):
+def deducciones_personales(credito_vivienda: float, gasto_medicina: float):
     return credito_vivienda + gasto_medicina
 
-def renta_exenta(ingresos_totales, deducciones_por_ley):
+def renta_exenta(ingresos_totales: float, deducciones_por_ley: float):
     return 0.25 * (ingresos_totales - deducciones_por_ley)
 
-def base_sobre_la_que_se_paga_impuesto(ingresos_totales, deducciones_por_ley, deducciones_personales, renta_exenta):
+def base_sobre_la_que_se_paga_impuesto(ingresos_totales: float, deducciones_por_ley: float, deducciones_personales: float, renta_exenta: float):
     return ingresos_totales - deducciones_por_ley - deducciones_personales - renta_exenta
 
