@@ -31,9 +31,9 @@ def calcular_deducciones_por_ley(aporte_pension: float):
 def deducciones_personales(credito_vivienda: float, gasto_medicina: float):
     return credito_vivienda + gasto_medicina
 
-def renta_exenta(ingresos_totales: float, deducciones_por_ley: float):
+def calcular_renta_exenta(ingresos_totales: float, deducciones_por_ley: float):
     return 0.25 * (ingresos_totales - deducciones_por_ley)
 
-def calcular_base_del_impuesto(ingresos_totales: float, deducciones_por_ley: float, deducciones_personales: float, renta_exenta: float):
-    return ingresos_totales - deducciones_por_ley - deducciones_personales - renta_exenta
+def calcular_base_del_impuesto(ingresos_totales: float, deducciones_por_ley: float, deducciones_personales: float, calcular_renta_exenta: float):
+    return ingresos_totales - deducciones_por_ley - deducciones_personales - calcular_renta_exenta
 
