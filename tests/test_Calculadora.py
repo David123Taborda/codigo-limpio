@@ -11,42 +11,42 @@ class PruebasCalculadora(unittest.TestCase):
     def test_normal_1(self):
         sueldo = 4500000
         otros_ingresos = 500000
-        esperado = (sueldo * MESES_DE_ANUALIDAD + BONO_ANUAL)  
+        esperado = (sueldo * self.self.MESES_DE_ANUALIDAD + self.BONO_ANUAL)  
         self.assertEqual(calcular_ingresos_total_anuales(sueldo, otros_ingresos), esperado)
 
     # Caso normal 2
     def test_normal_2(self):
         sueldo = 1000000
         otros_ingresos = 1000000
-        esperado = (sueldo * MESES_DE_ANUALIDAD) + BONO_ANUAL  
+        esperado = (sueldo * self.MESES_DE_ANUALIDAD) + self.BONO_ANUAL  
         self.assertEqual(calcular_ingresos_total_anuales(sueldo, otros_ingresos), esperado)
 
     # Caso normal 3
     def test_normal_3(self):
         sueldo = 1500000
         otros_ingresos = 0
-        esperado = (sueldo * MESES_DE_ANUALIDAD) + BONO_ANUAL  
+        esperado = (sueldo * self.MESES_DE_ANUALIDAD) + self.BONO_ANUAL  
         self.assertEqual(calcular_ingresos_total_anuales(sueldo, otros_ingresos), esperado)
 
     # Caso extraordinario 1
     def test_extraordinario_1(self):
         sueldo = 5000000
         otros_ingresos = 2000000
-        esperado = (sueldo * MESES_DE_ANUALIDAD) + BONO_ANUAL  
+        esperado = (sueldo * self.MESES_DE_ANUALIDAD) + self.BONO_ANUAL  
         self.assertEqual(calcular_ingresos_total_anuales(sueldo, otros_ingresos), esperado)
 
     # Caso extraordinario 2
     def test_extraordinario_2(self):
         sueldo = 10000000
         otros_ingresos = 0
-        esperado = (sueldo * MESES_DE_ANUALIDAD) + BONO_ANUAL  
+        esperado = (sueldo * self.MESES_DE_ANUALIDAD) + self.BONO_ANUAL  
         self.assertEqual(calcular_ingresos_total_anuales(sueldo, otros_ingresos), esperado)
 
 
     def test_extraordinario_3(self):
         sueldo = 3000000
         otros_ingresos = 1000000 
-        esperado =  (sueldo * MESES_DE_ANUALIDAD) + BONO_ANUAL 
+        esperado =  (sueldo * self.MESES_DE_ANUALIDAD) + self.BONO_ANUAL 
         self.assertEqual(calcular_ingresos_total_anuales(sueldo, otros_ingresos), esperado) 
 
     # Caso de error

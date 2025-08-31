@@ -1,6 +1,6 @@
 import sys
 sys.path.append("src")
-from model.Calculadora import calcular_ingresos_total_anuales, calcular_deducciones_por_ley, deducciones_personales, renta_exenta, base_sobre_la_que_se_paga_impuesto, ErrorValorNegativo, ErrorTipoDato
+from model.Calculadora import calcular_ingresos_total_anuales, calcular_deducciones_por_ley, calcular_deducciones_personales, renta_exenta, base_sobre_la_que_se_paga_impuesto, ErrorValorNegativo, ErrorTipoDato
 
 import unittest
 
@@ -20,7 +20,7 @@ try:
     ingresos_totales = calcular_ingresos_total_anuales(sueldo_mensual, otros_ingresos, numero_personas, patrimonio)
 
     deducciones_por_ley = calcular_deducciones_por_ley(aporte_pension)
-    deducciones_personales = deducciones_personales(credito_vivienda, gasto_medicina)
+    deducciones_personales = calcular_deducciones_personales(credito_vivienda, gasto_medicina)
     renta_exenta = renta_exenta(ingresos_totales, deducciones_por_ley)
     base_sobre_la_que_se_paga_impuesto = base_sobre_la_que_se_paga_impuesto(ingresos_totales, deducciones_por_ley, deducciones_personales, renta_exenta)
 
