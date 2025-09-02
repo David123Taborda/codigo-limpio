@@ -56,9 +56,28 @@ Deducciones personales
 Renta exenta (25%)
 
 Base sobre la que se paga impuesto
+## ¿Cómo lo hago funcionar?
+Para correr el proyecto debes hacer los siguientes pasos:
+  1. clonar y guardar el repositorio en documentos (recomendacion).
+  2. Luego abrir carpeta e ir a la ubicacion de este repositorio.
+  3. En el buscador de la carpeta digitar el comando "cmd" le das enter.
+  4. Se te abrira la terminal ya ubicada en la carpeta donde se encuentra este repositorio.
+  5. Luego copia y pega el enlace que se encuentra abajo de estos pasos.
+  6. Disfruta del programa.
 
+direccion para copiar y pegar en la terminal 
+`
+C:/Python313/python.exe d:/Documents/codigo-limpio/src/view/Interfaz_Calculadora.py
 
-¿Para qué sirve cada carpeta?
+`
+
+Para correr las pruebas del proyecto, puedes seguir los pasos anteriores para correr el proyecto y solo debes cambiar el enlace que te dejare abajo:
+direccion para copiar y pegar en la terminal. 
+`
+C:/Python313/python.exe d:/Documents/codigo-limpio/src/view/Interfaz_Calculadora.py
+
+`
+## ¿Para qué sirve cada carpeta?
 
 
 Calculadora.py = sirve para realizar cos calculos y validar el tipo de dato. 
@@ -66,8 +85,7 @@ Calculadora.py = sirve para realizar cos calculos y validar el tipo de dato.
 
 Interfaz_Calculadora.py = Este programa pide al usuario datos como sueldo, otros ingresos, gastos médicos, aportes a pensión, etc., y luego calcula automáticamente su ingreso total anual, las deducciones permitidas y la base gravable (la parte del ingreso sobre la que se pagan impuestos). También maneja errores si se ingresan valores inválidos.
 
-direccion para copiar y pegar en la terminal 
-C:/Python313/python.exe d:/Documents/codigo-limpio/src/view/Interfaz_Calculadora.py
+
 
 test_calculadora.py = sirve para probar automaticamente que una funcion que calcula ingresos anuales devuelva los resultados correctos con datos validos y muestra errores cuando los datos son invalidos. 
 
