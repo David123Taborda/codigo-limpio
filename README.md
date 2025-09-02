@@ -57,5 +57,11 @@ Renta exenta (25%)
 
 Base sobre la que se paga impuesto
 
+
+¿Para qué sirve cada carpeta?
+Calculadora.py = sirve para realizar cos calculos y validar el tipo de dato. 
+Interfaz_Calculadora.py = es la encargada de recolectar todos los datos necesarios para realizar los respectivos cálculos.
+test_calculadora.py = 
+
 Escrito por los estudiantes David Taborda y Juan Ocampo.
 
