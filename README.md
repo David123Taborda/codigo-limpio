@@ -66,6 +66,7 @@ Para correr el proyecto debes hacer los siguientes pasos:
   6. Disfruta del programa.
 
 direccion para copiar y pegar en la terminal 
+
 `
 C:/Python313/python.exe d:/Documents/codigo-limpio/src/view/Interfaz_Calculadora.py
 
@@ -73,10 +74,12 @@ C:/Python313/python.exe d:/Documents/codigo-limpio/src/view/Interfaz_Calculadora
 
 Para correr las pruebas del proyecto, puedes seguir los pasos anteriores para correr el proyecto y solo debes cambiar el enlace que te dejare abajo:
 direccion para copiar y pegar en la terminal. 
-`
-C:/Python313/python.exe d:/Documents/codigo-limpio/src/view/Interfaz_Calculadora.py
 
 `
+python -m unittest tests/test_Calculadora.py
+
+`
+
 ## ¿Para qué sirve cada carpeta?
 
 
