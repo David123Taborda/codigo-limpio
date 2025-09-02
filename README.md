@@ -67,7 +67,7 @@ Calculadora.py = sirve para realizar cos calculos y validar el tipo de dato.
 Interfaz_Calculadora.py = es la encargada de recolectar todos los datos necesarios para realizar los respectivos cálculos.
 
 
-test_calculadora.py = 
+test_calculadora.py = sirve para probar automaticamente que una funcion que calcula ingresos anuales devuelva los resultados correctos con datos validos y muestra errores cuando los datos son invalidos. 
 
 
 
