@@ -64,7 +64,7 @@ Base sobre la que se paga impuesto
 Calculadora.py = sirve para realizar cos calculos y validar el tipo de dato. 
 
 
-Interfaz_Calculadora.py = es la encargada de recolectar todos los datos necesarios para realizar los respectivos cálculos.
+Interfaz_Calculadora.py = Este programa pide al usuario datos como sueldo, otros ingresos, gastos médicos, aportes a pensión, etc., y luego calcula automáticamente su ingreso total anual, las deducciones permitidas y la base gravable (la parte del ingreso sobre la que se pagan impuestos). También maneja errores si se ingresan valores inválidos.
 
 
 test_calculadora.py = sirve para probar automaticamente que una funcion que calcula ingresos anuales devuelva los resultados correctos con datos validos y muestra errores cuando los datos son invalidos. 
