@@ -68,15 +68,15 @@ Para correr el proyecto debes hacer los siguientes pasos:
 direccion para copiar y pegar en la terminal 
 
 `
-C:/Python313/python.exe d:/Documents/codigo-limpio/src/view/Interfaz_Calculadora.py
-
+    python src/view/Interfaz_Calculadora.py
+    
 `
 
 Para correr las pruebas del proyecto, puedes seguir los pasos anteriores para correr el proyecto y solo debes cambiar el enlace que te dejare abajo:
 direccion para copiar y pegar en la terminal. 
 
 `
-python -m unittest tests/test_Calculadora.py
+    python -m unittest tests/test_Calculadora.py
 
 `
 
