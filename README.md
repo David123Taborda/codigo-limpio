@@ -58,12 +58,14 @@ Renta exenta (25%)
 Base sobre la que se paga impuesto
 ## ¿Cómo lo hago funcionar?
 Para correr el proyecto debes hacer los siguientes pasos:
-  1. clonar y guardar el repositorio en documentos (recomendacion).
-  2. Luego abrir carpeta e ir a la ubicacion de este repositorio.
-  3. En el buscador de la carpeta digitar el comando "cmd" le das enter.
-  4. Se te abrira la terminal ya ubicada en la carpeta donde se encuentra este repositorio.
-  5. Luego copia y pega el enlace que se encuentra abajo de estos pasos.
-  6. Disfruta del programa.
+  1. Descarga y guarda el repositorio en documentos como archivo .Zip (recomendacion).
+  2. Luego abrir carpeta e ir a la ubicacion (ve a doocumentos si lo guardaste alli) de este repositorio.
+  3. Debes extraer esa carpeta ahi mismo en documentos.
+  4. Una vez extraido la carpeta ingresa hasta donde veas todas las carpetas del repositorio juntas.
+  5. En el buscador de la carpeta digitar el comando "cmd" le das enter.
+  6. Se te abrira la terminal ya ubicada en la carpeta donde se encuentra este repositorio.
+  7. Luego copia y pega el enlace que se encuentra abajo de estos pasos.
+  8. Disfruta del programa.
 
 direccion para copiar y pegar en la terminal 
 
