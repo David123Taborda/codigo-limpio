@@ -1,5 +1,9 @@
 import sys
-sys.path.append("src")
+import os
+
+# Agrega la carpeta raíz del proyecto al sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
+
 import kivy 
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
