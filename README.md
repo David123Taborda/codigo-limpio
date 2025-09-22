@@ -83,5 +83,5 @@ test_calculadora.py = sirve para probar automaticamente que una funcion que calc
 
 Escrito por los estudiantes David Taborda y Juan Ocampo.
 
-Interfaz gráfica hecha por Susana Morales 
+Interfaz gráfica hecha por Cristian Copete y Susana Morales 
 
