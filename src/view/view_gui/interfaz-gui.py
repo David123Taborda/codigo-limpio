@@ -10,7 +10,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
-
+from kivy.uix.popup import Popup
 
 from src.model.Calculadora import (
     calcular_ingreso_total_anual,
@@ -84,8 +84,14 @@ class CalculadoraScreen(BoxLayout):
                 f"Renta exenta (25%): {renta_exenta:.2f}\n"
                 f"Base gravable para impuesto: {base_gravable:.2f}"
             )
+
+
         except (ValueError, ErrorValorNegativo, ErrorTipoDato) as e:
-            self.resultado.text = f"Error: {str(e)}"
+            cerrar = Button(text="volver al inicio")
+            mensaje_error = f"Error: {str(e)}"
+            error_emerg= Popup(title=mensaje_error,content=cerrar)
+            cerrar.bind(on_press=error_emerg.dismiss)
+            error_emerg.open()
 
 class CalculadoraApp(App):
     def build(self):
