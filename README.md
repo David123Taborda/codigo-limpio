@@ -56,6 +56,45 @@ Deducciones personales
 Renta exenta (25%)
 
 Base sobre la que se paga impuesto
+## ¿Cómo lo hago funcionar?
+Para correr el proyecto debes hacer los siguientes pasos:
+  1. Descarga y guarda el repositorio en documentos como archivo .Zip (recomendacion).
+  2. Luego abrir carpeta e ir a la ubicacion (ve a doocumentos si lo guardaste alli) de este repositorio.
+  3. Debes extraer esa carpeta ahi mismo en documentos.
+  4. Una vez extraido la carpeta ingresa hasta donde veas todas las carpetas del repositorio juntas.
+  5. En el buscador de la carpeta digitar el comando "cmd" le das enter.
+  6. Se te abrira la terminal ya ubicada en la carpeta donde se encuentra este repositorio.
+  7. Luego copia y pega el enlace que se encuentra abajo de estos pasos.
+  8. Disfruta del programa.
+
+direccion para copiar y pegar en la terminal 
+
+`
+    python src/view/Interfaz_Calculadora.py
+    
+`
+
+Para correr las pruebas del proyecto, puedes seguir los pasos anteriores para correr el proyecto y solo debes cambiar el enlace que te dejare abajo:
+direccion para copiar y pegar en la terminal. 
+
+`
+    python -m unittest tests/test_Calculadora.py
+
+`
+
+## ¿Para qué sirve cada carpeta?
+
+
+Calculadora.py = sirve para realizar cos calculos y validar el tipo de dato. 
+
+
+Interfaz_Calculadora.py = Este programa pide al usuario datos como sueldo, otros ingresos, gastos médicos, aportes a pensión, etc., y luego calcula automáticamente su ingreso total anual, las deducciones permitidas y la base gravable (la parte del ingreso sobre la que se pagan impuestos). También maneja errores si se ingresan valores inválidos.
+
+
+
+test_calculadora.py = sirve para probar automaticamente que una funcion que calcula ingresos anuales devuelva los resultados correctos con datos validos y muestra errores cuando los datos son invalidos. 
+
+
 
 Escrito por los estudiantes David Taborda y Juan Ocampo.
 
