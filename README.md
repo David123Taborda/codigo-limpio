@@ -85,3 +85,9 @@ Escrito por los estudiantes David Taborda y Juan Ocampo.
 
 Interfaz gráfica hecha por Cristian Copete y Susana Morales 
 
+
+conexion base de datos:
+      postgresql://juanydavid:6pu4pqA519HwCYvHmvdYqejhjhOwqr4G@dpg-d3ogr8bipnbc7380759g-a.virginia-postgres.render.com/declaracionderenta
+
+      
+
