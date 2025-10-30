@@ -89,5 +89,50 @@ Interfaz gráfica hecha por Cristian Copete y Susana Morales
 conexion base de datos:
       postgresql://juanydavid:6pu4pqA519HwCYvHmvdYqejhjhOwqr4G@dpg-d3ogr8bipnbc7380759g-a.virginia-postgres.render.com/declaracionderenta
 
+ 🧩 Configuración inicial de base de datos
+
+1. Asegúrate de tener Python 3.10 o superior.
+2. Instala dependencias si las hubiera (por ejemplo `pip install -r requirements.txt`).
+3. Crea el archivo de base de datos automáticamente ejecutando:
+
+   ```bash
+   python -m src.db_connection
+
+🗄️ Módulo de Base de Datos (db_conection.py)
+
+Este módulo gestiona la conexión y operaciones con la base de datos SQLite utilizada por la aplicación.
+Su función es permitir guardar y consultar los resultados obtenidos en la calculadora.
+
+🔧 Funcionalidad principal
+
+Conexión automática: se conecta a la base de datos ubicada en data/resultados.db.
+
+Creación de tabla: al iniciar la aplicación, crea la tabla resultados si no existe.
+
+Inserción de resultados: guarda cada cálculo realizado desde la interfaz.
+
+Consulta de historial: recupera los últimos resultados para mostrarlos en la ventana de historial.
+
+
+💾 Ubicación del archivo
+
+Los datos se almacenan localmente en:
+
+/data/resultados.db
+
+
+Si la carpeta o el archivo no existen, el sistema los crea automáticamente al iniciar el programa.
+
+⚠️ Nota importante
+
+Si el programa muestra un error de conexión (unable to open database file), asegúrate de que la carpeta data/ exista en el directorio principal del proyecto.
+Puedes crearla manualmente si no está presente.
+
+🧪 Ejecución de Pruebas Unitarias
+
+El proyecto incluye un conjunto de pruebas para verificar el correcto funcionamiento del sistema, incluyendo la base de datos.
+
+▶️ Para ejecutar todos los tests:
+python -m unittest discover tests 
       
 
