@@ -1,138 +1,245 @@
-# codigo-limpio
-solucion del problema calculador declaracion de renta 
+# 🧮 Calculadora de Declaración de Renta
 
-Enlace para los audios de la entrevista: https://drive.google.com/drive/folders/1Px86WvVIzanwdtUpdDr4zCUoKNaw0uHq?usp=drive_link
+Sistema completo para calcular la base gravable del impuesto de renta en Colombia, con interfaz gráfica Kivy y base de datos PostgreSQL en la nube.
 
-Documento de excel con los casos de uso: https://udemedellin-my.sharepoint.com/:x:/r/personal/dtaborda789_soyudemedellin_edu_co/Documents/calculadora%20de%20impuestos.xlsx?d=wea0377cbd11e4fd199019b71ff3f5436&csf=1&web=1&e=6WGpY6
+## 🔗 Enlaces del Proyecto
 
-📄 – Cálculo de Base Gravable para Impuesto de Renta
-📌 Descripción
-Este documento explica el cálculo de la base sobre la que se paga impuesto de renta para personas naturales a partir de sus ingresos, deducciones y beneficios tributarios.
-Incluye ejemplos prácticos de tres casos con diferentes características económicas y familiares.
+- **Audios de entrevista:** [Google Drive](https://drive.google.com/drive/folders/1Px86WvVIzanwdtUpdDr4zCUoKNaw0uHq?usp=drive_link)
+- **Casos de uso:** [Excel SharePoint](https://udemedellin-my.sharepoint.com/:x:/r/personal/dtaborda789_soyudemedellin_edu_co/Documents/calculadora%20de%20impuestos.xlsx?d=wea0377cbd11e4fd199019b71ff3f5436&csf=1&web=1&e=6WGpY6)
 
-📥 Entradas
+---
+
+## � Características
+
+✅ **Operaciones CRUD completas:**
+- ✅ CREATE TABLE - Creación de tablas en PostgreSQL
+- ✅ INSERT - Inserción de resultados calculados
+- ✅ SELECT - Consulta de historial (últimos 10 registros)
+- ✅ UPDATE - Modificación de registros existentes
+- ✅ DELETE - Eliminación de registros
+
+✅ **Interfaz gráfica con Kivy:**
+- Formulario de entrada de datos fiscales
+- Cálculo automático de base gravable
+- Visualización de historial de cálculos
+- Modificación y eliminación de registros
+
+✅ **Base de datos PostgreSQL en Render (nube)**  
+✅ **Tests unitarios completos (26 casos de prueba)**  
+✅ **Arquitectura MVC limpia**
+
+---
+
+## 📄 Descripción del Cálculo
+
+Este sistema calcula la base sobre la que se paga impuesto de renta para personas naturales a partir de sus ingresos, deducciones y beneficios tributarios.
+
+### 📥 Entradas
 El sistema recibe las siguientes variables para cada caso:
 
--Sueldo mensual → Salario fijo percibido mensualmente por la persona.
--Otros ingresos → Ganancias adicionales no incluidas en el sueldo (honorarios, rentas, inversiones, etc.).
--Aporte a pensión → Valor anual aportado al sistema de pensiones (obligatorio).
--Intereses por crédito de vivienda → Intereses pagados durante el año por un préstamo hipotecario, deducibles según la ley.
--Gastos de medicina → Gastos médicos deducibles.
--Personas a cargo → Número de dependientes económicos que pueden dar lugar a deducciones.
--Patrimonio → Valor total del patrimonio del contribuyente.
--Compras o gastos normales → Gastos anuales ordinarios no deducibles.
--Dinero consignado a su cuenta → Total anual consignado en cuentas bancarias.
+- **Sueldo mensual** → Salario fijo percibido mensualmente
+- **Otros ingresos** → Ganancias adicionales (honorarios, rentas, inversiones)
+- **Aporte a pensión** → Valor anual aportado al sistema de pensiones
+- **Intereses crédito vivienda** → Intereses pagados por préstamo hipotecario (deducibles)
+- **Gastos médicos** → Gastos médicos deducibles
+- **Personas a cargo** → Número de dependientes económicos
+- **Patrimonio** → Valor total del patrimonio del contribuyente
 
-⚙️ Proceso de cálculo
-El procedimiento para determinar la base gravable se desarrolla en los siguientes pasos:
+### ⚙️ Proceso de Cálculo
 
--Calcular el ingreso total anual a partir del sueldo mensual y otros ingresos.
--Determinar las deducciones por ley (aporte a pensión e intereses por crédito de vivienda).
--Identificar las deducciones personales (gastos médicos y beneficios por personas a cargo).
--Calcular la renta exenta equivalente al 25% del ingreso neto después de deducciones.
--Restar la renta exenta al ingreso neto para obtener la base sobre la que se pagará impuesto.
+1. **Ingreso total anual** = (Sueldo × 12) + Auxilio transporte + Otros ingresos
+2. **Deducciones por ley** = Aporte pensión + Deducción fija ($3,000,000)
+3. **Deducciones personales** = Crédito vivienda + Gastos médicos
+4. **Renta exenta** = 25% × (Ingresos - Deducciones ley)
+5. **Base gravable** = Ingresos - Deducciones ley - Deducciones personales - Renta exenta
 
-📤 Salidas
-El cálculo entrega los siguientes resultados para cada caso:
+### 📤 Salidas
 
--Ingreso total anual
--Deducciones por ley
--Deducciones personales
--Renta exenta (25%)
+- Ingreso total anual
+- Deducciones por ley
+- Deducciones personales
+- Renta exenta (25%)
+- **Base gravable** (sobre la que se paga impuesto)
 
-Base sobre la que se paga impuesto
-## ¿Cómo lo hago funcionar?
-Para correr el proyecto debes hacer los siguientes pasos:
-  1. Descarga y guarda el repositorio en documentos como archivo .Zip (recomendacion).
-  2. Luego abrir carpeta e ir a la ubicacion (ve a doocumentos si lo guardaste alli) de este repositorio.
-  3. Debes extraer esa carpeta ahi mismo en documentos.
-  4. Una vez extraido la carpeta ingresa hasta donde veas todas las carpetas del repositorio juntas.
-  5. En el buscador de la carpeta digitar el comando "cmd" le das enter.
-  6. Se te abrira la terminal ya ubicada en la carpeta donde se encuentra este repositorio.
-  7. Luego copia y pega el enlace que se encuentra abajo de estos pasos.
-  8. Disfruta del programa.
+---
+## 🚀 Instalación y Configuración
 
-direccion para copiar y pegar en la terminal 
+### **Paso 1: Clonar el repositorio**
+```bash
+git clone https://github.com/David123Taborda/codigo-limpio.git
+cd codigo-limpio
+```
 
-`
-    python src/view/Interfaz_Calculadora.py
-    
-`
+### **Paso 2: Crear entorno virtual con Python 3.13**
+```powershell
+# Windows PowerShell
+py -3.13 -m venv .venv313
 
-Para correr las pruebas del proyecto, puedes seguir los pasos anteriores para correr el proyecto y solo debes cambiar el enlace que te dejare abajo:
-direccion para copiar y pegar en la terminal. 
+# Activar el entorno virtual
+.\.venv313\Scripts\Activate.ps1
 
-`
-    python -m unittest tests/test_Calculadora.py
+# Si da error de ejecución de scripts:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
 
-`
+### **Paso 3: Instalar dependencias**
+```powershell
+pip install kivy psycopg2-binary
+```
 
-## ¿Para qué sirve cada carpeta?
+### **Paso 4: Configurar base de datos**
 
+1. Abre el archivo `SecretConfig.py`
+2. **⚠️ NO subas este archivo a GitHub** (ya está en `.gitignore`)
+3. Configura con tus credenciales de PostgreSQL:
 
-Calculadora.py = sirve para realizar cos calculos y validar el tipo de dato. 
+```python
+DB_CONFIG = {
+    'host': 'tu-host.render.com',
+    'port': '5432',
+    'database': 'tu_base_de_datos',
+    'user': 'tu_usuario',
+    'password': 'tu_contraseña'
+}
+```
 
+### **Paso 5: Crear tablas**
+```powershell
+python tests/test_conexion.py
+```
 
-Interfaz_Calculadora.py = Este programa pide al usuario datos como sueldo, otros ingresos, gastos médicos, aportes a pensión, etc., y luego calcula automáticamente su ingreso total anual, las deducciones permitidas y la base gravable (la parte del ingreso sobre la que se pagan impuestos). También maneja errores si se ingresan valores inválidos.
+---
 
+## 🎮 Uso del Sistema
 
+### **Ejecutar la aplicación:**
+```powershell
+python src/ui/gui.py
+```
 
-test_calculadora.py = sirve para probar automaticamente que una funcion que calcula ingresos anuales devuelva los resultados correctos con datos validos y muestra errores cuando los datos son invalidos. 
+### **Funcionalidades disponibles:**
 
+1. **Calcular Impuesto** → Ingresa datos y obtén la base gravable (se guarda automáticamente)
+2. **Ver Historial** → Consulta los últimos 10 cálculos realizados
+3. **Modificar Último Resultado** → Corrige el último cálculo guardado
+4. **Eliminar Último Resultado** → Elimina el último registro (con confirmación)
 
+---
 
-Escrito por los estudiantes David Taborda y Juan Ocampo.
+## 🧪 Ejecutar Tests
 
-Interfaz gráfica hecha por Cristian Copete y Susana Morales 
+### **Tests del modelo (lógica de negocio):**
+```powershell
+python -m unittest tests.test_Calculadora -v
+```
 
+### **Tests CRUD (base de datos):**
+```powershell
+python tests/test_crud_database.py
+```
 
-conexion base de datos:
-      postgresql://juanydavid:6pu4pqA519HwCYvHmvdYqejhjhOwqr4G@dpg-d3ogr8bipnbc7380759g-a.virginia-postgres.render.com/declaracionderenta
+**Cobertura total:** 26 tests (13 modelo + 13 CRUD)
 
- 🧩 Configuración inicial de base de datos
+---
 
-1. Asegúrate de tener Python 3.10 o superior.
-2. Instala dependencias si las hubiera (por ejemplo `pip install -r requirements.txt`).
-3. Crea el archivo de base de datos automáticamente ejecutando:
+## 📁 Estructura del Proyecto
 
-   ```bash
-   python -m src.db_connection
+```
+codigo-limpio/
+├── src/
+│   ├── model/
+│   │   └── Calculadora.py          # Lógica de negocio y validaciones
+│   ├── controller/
+│   │   └── CalculadoraController.py # Controlador MVC
+│   ├── ui/
+│   │   └── gui.py                   # Interfaz gráfica Kivy
+│   ├── view/
+│   │   └── Interfaz_Calculadora.py  # Interfaz CLI (legacy)
+│   └── db_conection.py              # Conexión PostgreSQL + CRUD
+│
+├── tests/
+│   ├── test_Calculadora.py          # Tests lógica de negocio (13)
+│   ├── test_crud_database.py        # Tests CRUD PostgreSQL (13)
+│   └── test_conexion.py             # Test de conexión
+│
+├── SecretConfig.py                  # ⚠️ Credenciales (NO SUBIR A GIT)
+├── .gitignore                       # Ignora archivos sensibles
+└── README.md                        # Este archivo
+```
 
-🗄️ Módulo de Base de Datos (db_conection.py)
+---
 
-Este módulo gestiona la conexión y operaciones con la base de datos SQLite utilizada por la aplicación.
-Su función es permitir guardar y consultar los resultados obtenidos en la calculadora.
+## 🔧 Tecnologías Utilizadas
 
-🔧 Funcionalidad principal
+- **Python 3.13** - Lenguaje principal
+- **Kivy 2.3.1** - Interfaz gráfica multiplataforma
+- **PostgreSQL** - Base de datos en la nube (Render)
+- **psycopg2-binary** - Driver de PostgreSQL para Python
+- **unittest** - Framework de testing
 
-Conexión automática: se conecta a la base de datos ubicada en data/resultados.db.
+---
 
-Creación de tabla: al iniciar la aplicación, crea la tabla resultados si no existe.
+## 📊 Operaciones CRUD Implementadas
 
-Inserción de resultados: guarda cada cálculo realizado desde la interfaz.
+| Operación | Función | Archivo | Interfaz |
+|-----------|---------|---------|----------|
+| **CREATE** | `crear_tabla()` | `db_conection.py` | Automático al iniciar |
+| **INSERT** | `insertar_resultado()` | `db_conection.py` | Botón "Calcular" |
+| **SELECT** | `obtener_historial()` | `db_conection.py` | Botón "Ver historial" |
+| **UPDATE** | `modificar_resultado()` | `db_conection.py` | Botón "Modificar último" |
+| **DELETE** | `eliminar_resultado()` | `db_conection.py` | Botón "Eliminar último" |
 
-Consulta de historial: recupera los últimos resultados para mostrarlos en la ventana de historial.
+---
 
+## 🐛 Solución de Problemas
 
-💾 Ubicación del archivo
+### **Error: `ModuleNotFoundError: No module named 'kivy'`**
+```powershell
+# Activa el entorno virtual
+.\.venv313\Scripts\Activate.ps1
+pip install kivy
+```
 
-Los datos se almacenan localmente en:
+### **Error: `No module named 'psycopg2'`**
+```powershell
+pip install psycopg2-binary
+```
 
-/data/resultados.db
+### **Error: `password authentication failed`**
+- Verifica credenciales en `SecretConfig.py`
+- Asegúrate de usar el host correcto (Virginia, Oregon, etc.)
 
+---
 
-Si la carpeta o el archivo no existen, el sistema los crea automáticamente al iniciar el programa.
+## 👥 Créditos
 
-⚠️ Nota importante
+**Desarrollo:**
+- **David Taborda** - [@David123Taborda](https://github.com/David123Taborda)
+- **Juan Ocampo** - Colaborador
 
-Si el programa muestra un error de conexión (unable to open database file), asegúrate de que la carpeta data/ exista en el directorio principal del proyecto.
-Puedes crearla manualmente si no está presente.
+**Diseño de Interfaz Original:**
+- Cristian Copete
+- Susana Morales
 
-🧪 Ejecución de Pruebas Unitarias
+**Institución:** Universidad de Medellín
 
-El proyecto incluye un conjunto de pruebas para verificar el correcto funcionamiento del sistema, incluyendo la base de datos.
+---
 
-▶️ Para ejecutar todos los tests:
-python -m unittest discover tests 
+## ✨ Estado del Proyecto
+
+🎉 **PROYECTO COMPLETO Y FUNCIONAL**
+
+✅ Operaciones CRUD completas (CREATE, INSERT, SELECT, UPDATE, DELETE)  
+✅ 26 tests unitarios pasando exitosamente  
+✅ Interfaz gráfica Kivy operativa  
+✅ Base de datos PostgreSQL en producción (Render)  
+✅ Arquitectura MVC implementada  
+✅ Documentación completa  
+
+---
+
+## 📄 Licencia
+
+Este proyecto es de uso académico para la Universidad de Medellín. 
       
 
