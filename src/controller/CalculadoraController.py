@@ -52,7 +52,23 @@ class CalculadoraController:
             return True
         return False
 
-    from src.db_conection import obtener_historial
-
-def obtener_historial_resultados(self):
-    return self.obtener_historial()
+    def obtener_historial_resultados(self):
+        from src.db_conection import obtener_historial
+        return obtener_historial()
+    
+    def eliminar_resultado(self, id_resultado):
+        """Elimina un resultado por su ID"""
+        from src.db_conection import eliminar_resultado
+        return eliminar_resultado(id_resultado)
+    
+    def calcular_impuesto(self, datos):
+        """Método adaptado para la interfaz Kivy"""
+        return self.procesar_calculo(
+            datos.get("Sueldo mensual", 0),
+            datos.get("Otros ingresos", 0),
+            datos.get("Aporte a pensión", 0),
+            datos.get("Intereses crédito vivienda", 0),
+            datos.get("Gastos médicos", 0),
+            datos.get("Personas a cargo", 0),
+            datos.get("Patrimonio", 0)
+        )["base_gravable"]

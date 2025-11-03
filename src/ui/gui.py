@@ -12,8 +12,8 @@ import os
 Window.size = (600, 900)
 
 # Asegurar importaciones desde src
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from controller.CalculadoraController import CalculadoraController
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+from src.controller.CalculadoraController import CalculadoraController
 
 
 class CalculadoraScreen(BoxLayout):
@@ -64,7 +64,8 @@ class CalculadoraScreen(BoxLayout):
         for texto, accion in [
             ("Calcular", self.calcular_impuesto),
             ("Ver historial", self.mostrar_historial),
-            ("Modificar último resultado", self.modificar_ultimo_resultado)
+            ("Modificar último resultado", self.modificar_ultimo_resultado),
+            ("Eliminar último resultado", self.eliminar_ultimo_resultado)
         ]:
             btn = Button(text=texto, size_hint_y=None, height=60)
             btn.bind(on_press=lambda x, f=accion: f())
@@ -80,17 +81,106 @@ class CalculadoraScreen(BoxLayout):
 
     def mostrar_historial(self):
         historial = self.controller.obtener_historial_resultados()
-        contenido = "\n".join(historial) if historial else "No hay resultados guardados aún."
+        if historial:
+            # Formatear cada registro del historial
+            contenido = "\n".join([
+                f"ID: {r[0]} | Base: ${r[5]:,.2f} | Fecha: {r[6]}"
+                for r in historial
+            ])
+        else:
+            contenido = "No hay resultados guardados aún."
+        
         popup = Popup(title="Historial",
                       content=Label(text=contenido),
                       size_hint=(0.8, 0.8))
         popup.open()
 
     def modificar_ultimo_resultado(self):
-        popup = Popup(title="Modificar último resultado",
-                      content=Label(text="Funcionalidad en construcción"),
-                      size_hint=(0.8, 0.4))
-        popup.open()
+        """Modificar el último resultado de la base de datos"""
+        historial = self.controller.obtener_historial_resultados()
+        if not historial:
+            popup = Popup(title="Error",
+                          content=Label(text="No hay resultados para modificar"),
+                          size_hint=(0.6, 0.3))
+            popup.open()
+            return
+        
+        # Crear popup con input para nuevo valor
+        layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        layout.add_widget(Label(text=f"Modificar último resultado (ID: {historial[0][0]})"))
+        layout.add_widget(Label(text=f"Base gravable actual: ${historial[0][5]:,.2f}"))
+        
+        nuevo_valor_input = TextInput(hint_text="Nuevo valor", multiline=False)
+        layout.add_widget(nuevo_valor_input)
+        
+        btn_box = BoxLayout(orientation='horizontal', size_hint_y=None, height=50, spacing=10)
+        
+        def guardar_cambio(instance):
+            try:
+                nuevo_valor = float(nuevo_valor_input.text)
+                if self.controller.modificar_ultimo_resultado(nuevo_valor):
+                    self.resultado_label.text = f"✅ Resultado modificado a ${nuevo_valor:,.2f}"
+                else:
+                    self.resultado_label.text = "❌ Error al modificar"
+                popup_mod.dismiss()
+            except ValueError:
+                self.resultado_label.text = "❌ Ingrese un valor numérico válido"
+        
+        btn_guardar = Button(text="Guardar")
+        btn_guardar.bind(on_press=guardar_cambio)
+        btn_box.add_widget(btn_guardar)
+        
+        btn_cancelar = Button(text="Cancelar")
+        btn_cancelar.bind(on_press=lambda x: popup_mod.dismiss())
+        btn_box.add_widget(btn_cancelar)
+        
+        layout.add_widget(btn_box)
+        
+        popup_mod = Popup(title="Modificar Resultado",
+                          content=layout,
+                          size_hint=(0.7, 0.5))
+        popup_mod.open()
+    
+    def eliminar_ultimo_resultado(self):
+        """Eliminar el último resultado de la base de datos"""
+        historial = self.controller.obtener_historial_resultados()
+        if not historial:
+            popup = Popup(title="Error",
+                          content=Label(text="No hay resultados para eliminar"),
+                          size_hint=(0.6, 0.3))
+            popup.open()
+            return
+        
+        id_a_eliminar = historial[0][0]
+        
+        # Popup de confirmación
+        layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        layout.add_widget(Label(text=f"¿Eliminar resultado ID {id_a_eliminar}?"))
+        layout.add_widget(Label(text=f"Base gravable: ${historial[0][5]:,.2f}"))
+        
+        btn_box = BoxLayout(orientation='horizontal', size_hint_y=None, height=50, spacing=10)
+        
+        def confirmar_eliminar(instance):
+            if self.controller.eliminar_resultado(id_a_eliminar):
+                self.resultado_label.text = f"🗑️ Resultado ID {id_a_eliminar} eliminado"
+            else:
+                self.resultado_label.text = "❌ Error al eliminar"
+            popup_del.dismiss()
+        
+        btn_si = Button(text="Sí, eliminar")
+        btn_si.bind(on_press=confirmar_eliminar)
+        btn_box.add_widget(btn_si)
+        
+        btn_no = Button(text="Cancelar")
+        btn_no.bind(on_press=lambda x: popup_del.dismiss())
+        btn_box.add_widget(btn_no)
+        
+        layout.add_widget(btn_box)
+        
+        popup_del = Popup(title="Confirmar Eliminación",
+                          content=layout,
+                          size_hint=(0.7, 0.4))
+        popup_del.open()
 
 
 class CalculadoraApp(App):
