@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Tablas de Base de Datos{% endblock %}
+
+{% block content %}
+<h2>🗄️ Configuración de Base de Datos</h2>
+
+<div style="margin: 30px 0; padding: 30px; background: #e7f3ff; border-radius: 10px; border-left: 5px solid #2196F3;">
+    <h3>📊 Información sobre las Tablas</h3>
+    <p style="margin: 15px 0; line-height: 1.8;">
+        Este proceso creará las siguientes tablas en la base de datos PostgreSQL si no existen:
+    </p>
+    
+    <div class="resultado-box" style="margin: 20px 0;">
+        <h4>1️⃣ Tabla <code>historial_calculos</code></h4>
+        <p style="margin: 10px 0; color: #666;">
+            Almacena todos los datos de entrada y el resultado calculado de cada operación.
+        </p>
+        <ul style="margin-left: 20px; line-height: 2;">
+            <li>id (clave primaria)</li>
+            <li>sueldo, otros_ingresos, aporte_pension</li>
+            <li>credito_vivienda, gasto_medicina</li>
+            <li>personas_a_cargo, patrimonio</li>
+            <li>base_gravable, fecha_creacion</li>
+        </ul>
+    </div>
+    
+    <div class="resultado-box" style="margin: 20px 0;">
+        <h4>2️⃣ Tabla <code>resultados</code></h4>
+        <p style="margin: 10px 0; color: #666;">
+            Almacena únicamente los resultados calculados de forma simplificada.
+        </p>
+        <ul style="margin-left: 20px; line-height: 2;">
+            <li>id (clave primaria)</li>
+            <li>ingreso_total, deducciones_ley</li>
+            <li>deducciones_personales, renta_exenta</li>
+            <li>base_gravable, fecha_creacion</li>
+        </ul>
+    </div>
+</div>
+
+<div style="margin: 30px 0; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 5px solid #ffc107;">
+    <h3>⚠️ Importante</h3>
+    <ul style="margin-left: 20px; line-height: 2; color: #856404;">
+        <li>Si las tablas ya existen, no se realizará ningún cambio</li>
+        <li>Este proceso NO elimina datos existentes</li>
+        <li>Es seguro ejecutar esta operación múltiples veces</li>
+        <li>Se requiere conexión a PostgreSQL en Render</li>
+    </ul>
+</div>
+
+<form method="POST" action="{{ url_for('database.crear_tablas') }}" 
+      onsubmit="return confirm('¿Estás seguro de crear las tablas en la base de datos?');">
+    <div style="text-align: center; margin: 30px 0;">
+        <button type="submit" class="btn" style="font-size: 18px; padding: 15px 40px;">
+            🔧 Crear Tablas en PostgreSQL
+        </button>
+    </div>
+</form>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a href="{{ url_for('index') }}" class="btn" style="background: #6c757d;">🔙 Volver al Inicio</a>
+</div>
+
+<div style="margin-top: 40px; padding: 20px; background: #d4edda; border-radius: 10px; border-left: 5px solid #28a745;">
+    <h3>✅ Estado de la Conexión</h3>
+    <p style="margin: 10px 0; line-height: 1.8; color: #155724;">
+        La aplicación está configurada para conectarse a PostgreSQL en Render (nube).
+        Al hacer clic en "Crear Tablas", se verificará la conexión y se crearán las estructuras necesarias.
+    </p>
+</div>
+{% endblock %}

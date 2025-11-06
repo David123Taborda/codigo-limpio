@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Calculadora de Renta{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 40px 0;">
+    <h2>Bienvenido al Sistema de Cálculo de Declaración de Renta</h2>
+    <p style="font-size: 1.1em; color: #666; margin: 20px 0;">
+        Sistema completo para calcular la base gravable del impuesto de renta en Colombia
+    </p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
+        <div class="resultado-box" style="text-align: center;">
+            <h3>➕ Calcular</h3>
+            <p style="margin: 15px 0; color: #666;">Realiza un nuevo cálculo de base gravable e inserta el resultado en la base de datos</p>
+            <a href="{{ url_for('calculadora.calcular') }}" class="btn">Ir a Calcular</a>
+        </div>
+        
+        <div class="resultado-box" style="text-align: center;">
+            <h3>🔍 Buscar</h3>
+            <p style="margin: 15px 0; color: #666;">Consulta el historial de cálculos realizados previamente</p>
+            <a href="{{ url_for('calculadora.buscar') }}" class="btn">Ver Historial</a>
+        </div>
+        
+        <div class="resultado-box" style="text-align: center;">
+            <h3>🗄️ Base de Datos</h3>
+            <p style="margin: 15px 0; color: #666;">Configura e inicializa las tablas de la base de datos</p>
+            <a href="{{ url_for('database.crear_tablas') }}" class="btn">Crear Tablas</a>
+        </div>
+    </div>
+    
+    <div style="margin-top: 50px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+        <h3>✨ Características del Sistema</h3>
+        <ul style="text-align: left; max-width: 600px; margin: 20px auto; line-height: 2;">
+            <li>✅ Cálculo automático de base gravable</li>
+            <li>✅ Almacenamiento en PostgreSQL (Render)</li>
+            <li>✅ Consulta de historial de cálculos</li>
+            <li>✅ Modificación de registros existentes</li>
+            <li>✅ Eliminación de registros</li>
+            <li>✅ Interfaz web intuitiva</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

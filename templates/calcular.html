@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Calcular Base Gravable{% endblock %}
+
+{% block content %}
+<h2>➕ Calcular Base Gravable</h2>
+
+<form method="POST" action="{{ url_for('calculadora.calcular') }}">
+    <div class="form-group">
+        <label for="sueldo">💰 Sueldo Mensual (COP):</label>
+        <input type="number" step="0.01" id="sueldo" name="sueldo" required 
+               placeholder="Ej: 4500000" value="0">
+    </div>
+    
+    <div class="form-group">
+        <label for="otros_ingresos">💵 Otros Ingresos Anuales (COP):</label>
+        <input type="number" step="0.01" id="otros_ingresos" name="otros_ingresos" required 
+               placeholder="Ej: 5000000" value="0">
+    </div>
+    
+    <div class="form-group">
+        <label for="aporte_pension">🏦 Aporte Anual a Pensión (COP):</label>
+        <input type="number" step="0.01" id="aporte_pension" name="aporte_pension" required 
+               placeholder="Ej: 3000000" value="0">
+    </div>
+    
+    <div class="form-group">
+        <label for="credito_vivienda">🏠 Intereses Crédito de Vivienda Anuales (COP):</label>
+        <input type="number" step="0.01" id="credito_vivienda" name="credito_vivienda" required 
+               placeholder="Ej: 2000000" value="0">
+    </div>
+    
+    <div class="form-group">
+        <label for="gasto_medicina">💊 Gastos Médicos Anuales (COP):</label>
+        <input type="number" step="0.01" id="gasto_medicina" name="gasto_medicina" required 
+               placeholder="Ej: 1000000" value="0">
+    </div>
+    
+    <div class="form-group">
+        <label for="personas_a_cargo">👨‍👩‍👧‍👦 Personas a Cargo:</label>
+        <input type="number" id="personas_a_cargo" name="personas_a_cargo" required 
+               placeholder="Ej: 2" value="0" min="0">
+    </div>
+    
+    <div class="form-group">
+        <label for="patrimonio">🏛️ Patrimonio Total (COP):</label>
+        <input type="number" step="0.01" id="patrimonio" name="patrimonio" required 
+               placeholder="Ej: 100000000" value="0">
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <button type="submit" class="btn">🧮 Calcular Base Gravable</button>
+        <a href="{{ url_for('index') }}" class="btn" style="background: #6c757d;">🔙 Volver</a>
+    </div>
+</form>
+
+<div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 5px solid #ffc107;">
+    <h3>ℹ️ Información sobre el Cálculo</h3>
+    <p style="margin: 10px 0; line-height: 1.6;">
+        Este sistema calcula la <strong>base gravable</strong> sobre la que se debe pagar el impuesto de renta.
+        El cálculo considera:
+    </p>
+    <ul style="line-height: 2; margin-left: 20px;">
+        <li>Ingreso total anual (sueldo × 12 + auxilio de transporte + otros ingresos)</li>
+        <li>Deducciones de ley (aporte a pensión + $3,000,000 fijos)</li>
+        <li>Deducciones personales (crédito vivienda + gastos médicos)</li>
+        <li>Renta exenta (25% del ingreso neto después de deducciones de ley)</li>
+    </ul>
+</div>
+{% endblock %}

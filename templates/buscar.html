@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Buscar en Historial{% endblock %}
+
+{% block content %}
+<h2>🔍 Historial de Cálculos</h2>
+
+{% if historial %}
+    <p style="margin-bottom: 20px; color: #666;">
+        Se encontraron <strong>{{ historial|length }}</strong> registro(s) en la base de datos.
+    </p>
+    
+    <div style="overflow-x: auto;">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ingreso Total</th>
+                    <th>Deducciones Ley</th>
+                    <th>Deducciones Personales</th>
+                    <th>Renta Exenta</th>
+                    <th>Base Gravable</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registro in historial %}
+                <tr>
+                    <td>{{ registro[0] }}</td>
+                    <td>${{ "{:,.2f}".format(registro[1]) }}</td>
+                    <td>${{ "{:,.2f}".format(registro[2]) }}</td>
+                    <td>${{ "{:,.2f}".format(registro[3]) }}</td>
+                    <td>${{ "{:,.2f}".format(registro[4]) }}</td>
+                    <td><strong>${{ "{:,.2f}".format(registro[5]) }}</strong></td>
+                    <td>{{ registro[6] }}</td>
+                    <td>
+                        <a href="{{ url_for('calculadora.modificar', registro_id=registro[0]) }}" 
+                           class="btn" style="padding: 5px 15px; font-size: 14px;">
+                            ✏️ Modificar
+                        </a>
+                        <form method="POST" action="{{ url_for('calculadora.eliminar', registro_id=registro[0]) }}" 
+                              style="display: inline;"
+                              onsubmit="return confirm('¿Estás seguro de eliminar este registro?');">
+                            <button type="submit" class="btn btn-danger" style="padding: 5px 15px; font-size: 14px;">
+                                🗑️ Eliminar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <div style="text-align: center; padding: 40px; background: #f8f9fa; border-radius: 10px; margin: 20px 0;">
+        <h3>📭 No hay registros en el historial</h3>
+        <p style="color: #666; margin: 20px 0;">
+            Aún no se han realizado cálculos. Haz tu primer cálculo para ver los resultados aquí.
+        </p>
+        <a href="{{ url_for('calculadora.calcular') }}" class="btn">➕ Hacer Primer Cálculo</a>
+    </div>
+{% endif %}
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="{{ url_for('index') }}" class="btn" style="background: #6c757d;">🔙 Volver al Inicio</a>
+</div>
+
+<div style="margin-top: 30px; padding: 20px; background: #e7f3ff; border-radius: 10px; border-left: 5px solid #2196F3;">
+    <h3>💡 Funcionalidades</h3>
+    <ul style="line-height: 2; margin-left: 20px;">
+        <li><strong>Modificar:</strong> Permite editar la base gravable de un registro específico</li>
+        <li><strong>Eliminar:</strong> Borra permanentemente un registro del historial</li>
+        <li>Los registros se muestran ordenados por fecha de creación</li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Resultado del Cálculo{% endblock %}
+
+{% block content %}
+<h2>✅ Resultado del Cálculo</h2>
+
+<div class="resultado-box">
+    <div class="resultado-item">
+        <span>💰 Ingreso Total Anual:</span>
+        <span>${{ "{:,.2f}".format(resultado.ingreso_total) }}</span>
+    </div>
+    
+    <div class="resultado-item">
+        <span>📉 Deducciones de Ley:</span>
+        <span>${{ "{:,.2f}".format(resultado.deducciones_ley) }}</span>
+    </div>
+    
+    <div class="resultado-item">
+        <span>🏠 Deducciones Personales:</span>
+        <span>${{ "{:,.2f}".format(resultado.deducciones_personales) }}</span>
+    </div>
+    
+    <div class="resultado-item">
+        <span>🎁 Renta Exenta (25%):</span>
+        <span>${{ "{:,.2f}".format(resultado.renta_exenta) }}</span>
+    </div>
+    
+    <div class="resultado-item" style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin-top: 10px;">
+        <span>🎯 BASE GRAVABLE:</span>
+        <span>${{ "{:,.2f}".format(resultado.base_gravable) }}</span>
+    </div>
+</div>
+
+<div style="margin-top: 30px; padding: 20px; background: #d4edda; border-radius: 10px; border-left: 5px solid #28a745;">
+    <p style="margin: 0; color: #155724;">
+        ✅ <strong>El resultado ha sido guardado exitosamente en la base de datos.</strong>
+    </p>
+</div>
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="{{ url_for('calculadora.calcular') }}" class="btn">➕ Hacer Otro Cálculo</a>
+    <a href="{{ url_for('calculadora.buscar') }}" class="btn">🔍 Ver Historial</a>
+    <a href="{{ url_for('index') }}" class="btn" style="background: #6c757d;">🏠 Volver al Inicio</a>
+</div>
+
+<div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+    <h3>📊 ¿Qué significa este resultado?</h3>
+    <p style="line-height: 1.8; color: #666;">
+        La <strong>base gravable</strong> de ${{ "{:,.2f}".format(resultado.base_gravable) }} es la cantidad 
+        sobre la cual se calculará el impuesto de renta según las tarifas establecidas por la DIAN. 
+        Este valor resulta de restar todas las deducciones permitidas de tu ingreso total anual.
+    </p>
+</div>
+{% endblock %}
